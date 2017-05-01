@@ -1,0 +1,168 @@
+<div class="logout">
+    <a ng-href="#/log-out">Log out</a>
+</div>
+<div ng-show="header=='list'">
+    <div ng-show="user.type=='A'">
+        <input type="button" class="btn-primary" value="Add Catelog"
+               ng-click="addmovie()">
+    </div>
+    <div id="movie-list">
+        <nav class="horizontal">
+            <ul>
+                <li>Movies</li>
+                <li>Genre</li>
+                <li>Country</li>
+                <li>TV-Series</li>
+                <li>Top IMDb</li>
+            </ul>
+        </nav>
+        <table>
+            <tr>
+                <td><input type="text" class="form-control" placeholder="Search For Text..." ng-model="mainVm.searchText"></td>
+            </tr>
+        </table>
+        <table>
+            <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Title</th>
+
+                <th
+                        ng-click="maiVm.sorter.sortby='imdbRating'; mainVm.sorter.sortorder=!mainVm.sorter.sortorder;">IMDB
+                    Ratings</th>
+                <th
+                        ng-click="maiVm.sorter.sortby='year'; mainVm.sorter.sortorder=!mainVm.sorter.sortorder;">Year</th>
+                <th
+                        ng-click="maiVm.sorter.sortby='imdbvotes'; mainVm.sorter.sortorder=!mainVm.sorter.sortorder;">IMDB
+                    Votes</th>
+                <th>Type</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody
+                    ng-repeat="p in mainVm.movies |filter:mainVm.searchText | orderBy:maiVm.sorter.sortby:mainVm.sorter.sortorder">
+            <tr>
+                <!--<td>
+    <a ng-href="#/movie_detail/{{p.id}}"><img class="img" ng-src="{{p.poster}}" /></a>
+  </td>-->
+                <td><a ng-href="#/movie-detail/{{p.id}}"><img class="img"
+                                                              ng-src="{{p.poster}}" /></a></td>
+                <td>{{p.title}}</td>
+                <td>{{p.imdbRating}}</td>
+                <td>{{p.year}}</td>
+                <td>{{p.imdbVotes}}</td>
+                <td>{{p.type}}</td>
+                <td>{{p.genre}}</td>
+                <td ng-show="user.type=='A'"><input type="button"
+                                                    class="btn-primary" value="Edit" ng-click="editmovie(p)">&nbsp;&nbsp;&nbsp;
+                    <input type="button" class="btn-danger" value="Remove"
+                           ng-click="removemovie(p)"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div ng-show="header!=='list'">
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <header class="panel-heading">
+                <b>{{header}} Catelog</b>
+            </header>
+        </div>
+        <form name="catelogForm" class="css-form" novalidate>
+            <div id="messages" style="color: red; margin-bottom: 15px;"
+                 ng-show="error" ng-bind-html="error"></div>
+            <div class="col-md-12">
+				<span style="float: right; color:red;font-style: italic; padding-top: 10px;">*Required fields.</span>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-md-2 control-label">Title :
+                </label> <input type="text" ng-model="catelog.title" required name="title" class="form-control"/>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Year :
+                </label> <input type="number" ng-model="catelog.year" required name="year" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Rated
+                </label> <input type="text" ng-model="catelog.rated" required name="rated" class="form-control"/>
+
+                <label>ReleasedOn :
+                </label> <input type="text" ng-model="catelog.releasedOn" required
+                                name="releasedOn" class="form-control"/>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Runtime:
+                </label> <input type="text" ng-model="catelog.runtime" required
+                                name="runtime" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Genre :
+                </label> <input type="text" ng-model="catelog.genre" required name="genre" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Director:
+                </label> <input type="text" ng-model="catelog.director" required
+                                name="director" class="form-control" />
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-md-2 control-label">Writer :
+                </label> <input type="text" ng-model="catelog.writer" required name="writer" class="form-control" />
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-md-2 control-label">Actors :
+                </label> <input type="text" ng-model="catelog.actors" required name="actors" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Language:
+                </label> <input type="text" ng-model="catelog.language" required
+                                name="language" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Country<font color="red">*</font> :
+                </label> <input type="text" ng-model="catelog.country" required
+                                name="country" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Metascore :
+                </label> <input type="text" ng-model="catelog.metascore" required
+                                name="metascore" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Imdb Rating<font color="red">*</font> :
+                </label> <input type="text" ng-model="catelog.imdbRating" required
+                                name="imdbRating" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Imdb Votes :
+                </label> <input type="number" ng-model="catelog.imdbVotes" required
+                                name="imdbVotes" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Imdb Id<font color="red">*</font> :
+                </label> <input type="text" ng-model="catelog.imdbId" required name="imdbId" class="form-control"/>
+            </div>
+            <div class="form-group col-xs-2">
+                <label class="col-md-2 control-label">Type :
+                </label> <input type="text" ng-model="catelog.type" required name="type" class="form-control" />
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-md-2 control-label">Awards:
+                </label> <input type="text" ng-model="catelog.awards" required name="awards" class="form-control" />
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-md-2 control-label">Poster:
+                </label> <input type="url" ng-model="catelog.poster" required name="poster" class="form-control" />
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-md-2 control-label">Plot :
+                </label> <textarea ng-model="catelog.plot" required name="plot" class="form-control"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="addOrUpdate()" ng-disabled="catelogForm.$invalid">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div></div>
