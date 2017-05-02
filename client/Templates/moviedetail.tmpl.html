@@ -1,0 +1,29 @@
+<div class="logout"><a ng-href="#/log-out">Log out</a></div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <img class="img" ng-src="{{mainVm.movie.poster}}"/>
+        <p><strong>Director</strong>: {{mainVm.movie.director}}</p>
+        <p><strong>Actors</strong>: {{mainVm.movie.actors}}</p>
+        <p><strong>Plot</strong>: {{mainVm.movie.plot}}</p>
+        <p><strong>IMDB Rating</strong>: {{mainVm.movie.imdbRating}}</p>
+        <p><strong>Comments</strong>:
+        <div class="list" ng-repeat="C in mainVm.comments">
+            {{C}}
+        </div>
+        <p><strong>Rating</strong>:{{mainVm.rating}}</p>
+
+        <br>
+        Please type your comments below:<br></br>
+        <form class="comments">
+            <input type="text" ng-model="comments"/>
+            <input type="button" class="button1" value="submit" ng-click="Csubmit()"/>
+        </form>
+        <br>
+        Rate this movie <br></br>
+        <form class="comments">
+            <input type="text" ng-model="rating"/>
+            <input type="button" class="button1" value="submit" ng-click="Rsubmit()"/>
+        </form>
+    </div>
+</div>

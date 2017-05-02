@@ -1,0 +1,49 @@
+<div class="logout"><a ng-href="#/log-out">Log out</a></div>
+
+<div id="movie-list">
+    <nav class="horizontal">
+        <ul>
+            <li>Movies </li>
+            <li>Genre</li>
+            <li>Country</li>
+            <li>TV-Series</li>
+            <li>Top IMDb</li>
+
+        </ul>
+    </nav>
+    <table>
+        <tr>
+            <td><input type="text" class="form-control" placeholder="Search For Text..." ng-model="mainVm.searchText"></td>
+            <!--
+            <td><input type="text" class="form-control" placeholder="Search By Type..." ng-model="mainVm.searchText.type"></td>
+            <td><input type="text" class="form-control" placeholder="Search By Year..." ng-model="mainVm.searchText.year"></td>
+            <td><input type="text" class="form-control" placeholder="Search By Genre..." ng-model="mainVm.searchText.genre"></td>-
+            -->
+        </tr>
+    </table>
+    <table>
+        <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Title</th>
+
+            <th ng-click="maiVm.sorter.sortby='imdbRating'; mainVm.sorter.sortorder=!mainVm.sorter.sortorder;">IMDB Ratings</th>
+            <th ng-click="maiVm.sorter.sortby='year'; mainVm.sorter.sortorder=!mainVm.sorter.sortorder;">Year</th>
+            <th ng-click="maiVm.sorter.sortby='imdbvotes'; mainVm.sorter.sortorder=!mainVm.sorter.sortorder;">IMDB Votes</th>
+            <th>Type</th>
+            <th>Genre</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="p in mainVm.movies |filter:mainVm.searchText | orderBy:maiVm.sorter.sortby:mainVm.sorter.sortorder">
+        <tr>
+
+            <td><a ng-href="#/movie-detail/{{p.id}}"><img class="img" ng-src="{{p.poster}}" /></a></td>
+            <td>{{p.title}}</td>
+            <td>{{p.imdbRating}}</td>
+            <td>{{p.year}}</td>
+            <td>{{p.imdbVotes}}</td>
+            <td>{{p.type}}</td>
+            <td>{{p.genre}}</td>
+        </tr>
+        </tbody>
+    </table></div>
