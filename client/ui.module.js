@@ -6,7 +6,7 @@ var app =  angular
     .config(function($routeProvider) {
         $routeProvider
             .when('/signin', {
-                templateUrl: 'index.html',
+                templateUrl: 'signin.html',
                 controller: 'signincontroller'
             })
             .when('/movie-login',{

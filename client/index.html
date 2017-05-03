@@ -7,45 +7,15 @@
     <title>Title</title>
 </head>
 <body>
+
 <header >
 
-        <img src="movieflix.jpg" style="width:304px;height:228px;">
+        <img src="movieflix.jpg" >
 
 </header>
-<div class="container-fluid">
-<div class="row">
-</div>
-    <div class="col-sm-4">
-    </div>
+<section ng-view>
 
-    <div class="col-sm-4">
-    <div class="center">
-        <div id="login">
-        <span ng-if="error" style="color:red">{{error}}</span>
-<form>
-
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"ng-model="email">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="password">
-    </div>
-    <button type="submit" class="btn btn-default" ng-click="login()">Sign In</button>
-
-</form>
-            <br>
-            <br>
-            <a ng-href="#/signup">Click here to sign up</a>
-        </div>
-    </div>
-</div>
-<div class="col-sm-4">
-</div>
-</div>
-</div>
-
+</section>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.min.js"></script>
 <script src="https://code.angularjs.org/1.5.8/angular-messages.min.js"></script>
