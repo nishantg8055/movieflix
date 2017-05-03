@@ -1,0 +1,108 @@
+.center {
+    padding: 70px 0;
+    border: 3px solid black;
+}
+#login{
+    background-color:rgba(191,182,182,1);
+    width:20%;
+    height:20em;
+    padding-left:20px;
+    position:center;
+    top:30%;
+    bottom:50%;
+    left:40%;
+    border-radius:2em;
+    position:fixed;
+    font-size:15px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color:black;
+}
+table td
+{
+    padding:5px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+    color:white;
+    text-align:center;
+}
+table th
+{
+
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+    color:rgba(255, 255, 102,0.8);
+    text-align:center;
+
+}
+
+div{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+    color:white;
+}
+.button1
+{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color:silver;
+    height:25px;
+    text-align:center;
+}
+.img
+{
+    height:200px;
+    width:200px;
+}
+
+nav.horizontal {
+    width: 100%;
+
+}
+
+nav.horizontal ul {
+    padding: 0px;
+    margin: 0px;
+
+
+}
+
+nav.horizontal li {
+    float: left;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 20%;
+    text-align: center;
+    background-color:rgba(255, 255, 102,0.8);
+
+}
+
+nav ul li a
+{
+    color:white;
+    font-size:20px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+}
+
+.comments
+{
+    display:inline;
+    color:black;
+    font-size:15px;
+}
+
+.logout
+{
+    position:relative;
+    color:white;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+    left:90%;
+}
+.buttona
+{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color:silver;
+    height:25px;
+    font-size:15px;
+    text-align:center;
+}
